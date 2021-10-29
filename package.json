@@ -1,0 +1,26 @@
+{
+  "name": "npm-cli",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Tiffany-D/npm-cli.git"
+  },
+  "author": "TiffanyD",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Tiffany-D/npm-cli/issues"
+  },
+  "homepage": "https://github.com/Tiffany-D/npm-cli#readme",
+  "dependencies": {
+    "axios": "^0.24.0",
+    "chalk": "^4.1.2",
+    "country-list": "^2.2.0",
+    "figlet": "^1.5.2",
+    "ora": "^6.0.1"
+  }
+}
