@@ -3,14 +3,6 @@
 
 //test line
 //console.log("Hello, Node.JS!");
-
-//node packages
-const axios = require('axios');
-const chalk = require('chalk');
-const { getCode, getName } = require('country-list');
-console.log(getName);
-
-
 //make color in terminal
 //console.log(chalk.magenta('Join the dark side, we have cookies!!'));
 
@@ -27,7 +19,14 @@ console.log(getName);
 // });
 
 
-//Start code here
+
+
+//Variables
+const axios = require('axios');
+const chalk = require('chalk');
+const country = require('country-list');
+const api ='https://date.nager.at/api/v3/PublicHolidays/';
+
 //Get the year (4 digits)
 const day = new Date();
 let year = day.getFullYear();
@@ -37,19 +36,15 @@ console.log(year);
 const messageUserCountry = ('Enter a country');
 const messageUserYear = ('Enter the year');
 
-console.log(messageUserCountry);
-console.log(messageUserYear);
+const publicHolydays = async (response) => {
+    const response = await axios('api');
+    const getCountry = response.country;
+    const getYear = response.year;
+    const countryCode = response.getCode;
 
-//Get method
-const api ='https://date.nager.at/api/v3/PublicHolidays/';
+   
+}
 
-// const publicHolydays = async (response) => {
- 
-    
-// }
-
-
-// publicHolydays();
 
 
 
