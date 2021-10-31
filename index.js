@@ -1,14 +1,15 @@
 #!/usr/bin/env node
 
 
-// test line
+//test line
 //console.log("Hello, Node.JS!");
 
 //node packages
 const axios = require('axios');
 const chalk = require('chalk');
-const countryList = require('country-list');
-//console.log('countryList');
+const { getCode, getName } = require('country-list');
+console.log(getName);
+
 
 //make color in terminal
 //console.log(chalk.magenta('Join the dark side, we have cookies!!'));
@@ -32,10 +33,23 @@ const day = new Date();
 let year = day.getFullYear();
 console.log(year);
 
-//Get method
-const api =`https://date.nager.at/api/v3/PublicHolidays/${year}/AT`;
-axios.get('api').then((response)=>{
-    console.log(response.year);
-})
+// messages to the user
+const messageUserCountry = ('Enter a country');
+const messageUserYear = ('Enter the year');
 
-//console.log(axios('api'));
+console.log(messageUserCountry);
+console.log(messageUserYear);
+
+//Get method
+const api ='https://date.nager.at/api/v3/PublicHolidays/';
+
+// const publicHolydays = async (response) => {
+ 
+    
+// }
+
+
+// publicHolydays();
+
+
+
