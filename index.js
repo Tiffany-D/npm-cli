@@ -25,36 +25,37 @@
 const axios = require('axios');
 const chalk = require('chalk');
 const readlineSync = require("readline-sync");
-const { getCode } = require('country-list');
-const country = getCode;
+const country = require('country-list');
+
 
 //Get the year (4 digits)
-const day = new Date();
-let year = day.getFullYear();
+const day = new Date().getFullYear();
 //console.log(year);
 
-const api =`https://date.nager.at/api/v3/PublicHolidays/${year}/${country}`;
+const api ='https://date.nager.at/api/v3/PublicHolidays/';
 
 // messages to the user
 
 const messageUserCountry =readlineSync.question(chalk.blue('Enter a country:'));
-const messageUserYear = readlineSync.question(chalk.yellow('Enter the year:'));
+//const messageUserYear = readlineSync.question(chalk.yellow('Enter the year:'));
+const countryCode = country.getCode(messageUserCountry);
 
-
-const publicHolydays = async (year, country) => {
-     await `${messageUserCountry}/${messageUserYear}`;
+const publicHolidays = async () => {
     
    try {
-       const arrayDaysHolidates = await axios.get(`${api}${year}/${country}`);
-       arrayDaysHolidates.forEach((element) => {
-           console.log(chalk.greenBright(`${element.messageUserCountry}/${element.messageUserYear}`))
+       const arrayDaysHolidates = await axios.get(`${api}${day}/${countryCode}`);
+       const apiItems = Array.from(arrayDaysHolidates.data);
+       apiItems.forEach((element) => {
+           console.log(chalk.greenBright(`${element.name}/${element.date}`))
     
        });
    } catch (error) {
        console.log(chalk.bgRed('Invalid data'));
    }
+    //console.log(publicHolidays);
 }
-publicHolydays();
-
+publicHolidays(day, countryCode);
+//console.log(countryCode);
+//console.log(day);
 
        
