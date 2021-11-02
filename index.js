@@ -41,7 +41,7 @@ const messageUserCountry =readlineSync.question(chalk.blue('Enter a country:'));
 const messageUserYear = readlineSync.question(chalk.yellow('Enter the year:'));
 
 
-const publicHolydays = async (year, code) => {
+const publicHolydays = async (year, country) => {
      await `${messageUserCountry}/${messageUserYear}`;
     
    try {
